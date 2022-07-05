@@ -2,32 +2,34 @@
 
 call plug#begin(stdpath('data') . '/plugged')
 " Plugin Section
- Plug 'morhetz/gruvbox'
- Plug 'scrooloose/nerdtree'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  " A fuzzy file finder
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
+ " Icons
+ Plug 'ryanoasis/vim-devicons'
+ " Color scheme
+ Plug 'sainnhe/everforest'
  " Comment/Uncomment tool
  Plug 'scrooloose/nerdcommenter'
+ " Status line
+ " Plug 'itchyny/lightline.vim'
  Plug 'vim-airline/vim-airline'
- " Airline themes
  Plug 'vim-airline/vim-airline-themes'
- " Nord
- Plug 'arcticicestudio/nord-vim'
+ " tmux statusline
+ Plug 'edkolev/tmuxline.vim'
  " Git integration
  Plug 'tpope/vim-fugitive'
  " Git diff highlighting 
  Plug 'airblade/vim-gitgutter'
  " Better syntax-highlighting for filetypes in vim
- Plug 'sheerun/vim-polyglot'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+ Plug 'hashivim/vim-terraform'
  " Add surrounding text in pairs
  Plug 'tpope/vim-surround'
  " Debugger
  Plug 'puremourning/vimspector'
- " tab switching
- Plug 'vim-ctrlspace/vim-ctrlspace'
  call plug#end()
 
 
@@ -36,7 +38,6 @@ call plug#begin(stdpath('data') . '/plugged')
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
 set incsearch               " incremental search
 set tabstop=4               " number of columns occupied by a tab 
@@ -45,8 +46,7 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number relativenumber   " add line numbers
-set wildmode=longest,list,full   " get bash-like tab completions
-set cc=80                  " set an 80 column border for good coding style
+set cc=120                  " set an 80 column border for good coding style
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
@@ -55,7 +55,6 @@ filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
 imap jj <ESC>               " jj for escape
-let g:CtrlSpaceDefaultMappingKey = "<Leader><C-space>"
 set completeopt=menu,menuone,noselect " better autocomplete options
 set hidden 
 set encoding=utf-8
@@ -69,9 +68,9 @@ nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
 nnoremap <Leader>dT :call vimspector#ClearBreakpoints()<CR>
 
 nmap <Leader>dk <Plug>VimspectorRestart
-nmap <Leader>dh <Plug>VimspectorStepOut
-nmap <Leader>dl <Plug>VimspectorStepInto
-nmap <Leader>dj <Plug>VimspectorStepOver
+nmap <F9> <Plug>VimspectorStepOut
+nmap <F7> <Plug>VimspectorStepInto
+nmap <F8> <Plug>VimspectorStepOver
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
@@ -79,12 +78,6 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 nmap <LocalLeader><F11> <Plug>VimspectorUpFrame
 nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
 
-" Airline configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" Nerdtree configuration
-let NERDTreeShowHidden=1
 
 " nerdcommenter configuration
 " Add spaces after comment delimiters by default
@@ -97,21 +90,18 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " color schemes
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+colorscheme everforest
+set background=dark
+
+" vim-airline configuration 
+let g:airline#extensions#tabline#enabled = 1
+set noshowmode
+
+set termguicolors
+" This line enables the true color support.
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 syntax enable
-colorscheme gruvbox
 " open new split panes to right and below
 set splitright
 set splitbelow
@@ -184,6 +174,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" coc-explorer configuration
+nmap <leader>ee <Cmd>CocCommand explorer<CR>
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
@@ -210,6 +203,8 @@ augroup mygroup
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 

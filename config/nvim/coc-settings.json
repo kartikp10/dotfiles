@@ -26,5 +26,21 @@
         "reference": "\uf87a",
         "typeParameter": "\uf278",
         "default": "\uf29c"
-    }
+    },
+    "yaml.format.enable": true,
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    },
+    "explorer.icon.enableNerdfont": true
 }
