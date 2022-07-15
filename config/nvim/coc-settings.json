@@ -42,5 +42,10 @@
             "settings": {}
         }
     },
-    "explorer.icon.enableNerdfont": true
+    "explorer.icon.enableNerdfont": true,
+    "explorer.file.showHiddenFiles": true,
+    "python.pythonPath": "/Users/kpande/.pyenv/shims/python",
+    "Lua.diagnostics.globals": [
+      "vim"
+    ]
 }
