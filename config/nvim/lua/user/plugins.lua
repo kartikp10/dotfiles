@@ -74,11 +74,13 @@ return packer.startup(function(use)
   -- Debugger
   use "puremourning/vimspector"
 
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "sainnhe/everforest"
   use "sainnhe/gruvbox-material"
+
 
   -- cmp plugins
   use {"neoclide/coc.nvim", branch = "release"}
@@ -106,6 +108,10 @@ return packer.startup(function(use)
 
   -- Better terminal integration
     use "akinsho/toggleterm.nvim"
+
+
+  -- Indent lines
+  use "lukas-reineke/indent-blankline.nvim"
 
 
   -- Automatically set up your configuration after cloning packer.nvim
