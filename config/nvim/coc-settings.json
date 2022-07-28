@@ -1,5 +1,6 @@
 {
-    "diagnostic.checkCurrentLine": true,
+    "diagnostic.checkCurrentLine": false,
+    "diagnostic.virtualText": false,
     "suggest.completionItemKindLabels": {
         "function": "\uf794",
         "method": "\uf6a6",
@@ -46,6 +47,6 @@
     "explorer.file.showHiddenFiles": true,
     "python.pythonPath": "/Users/kpande/.pyenv/shims/python",
     "Lua.diagnostics.globals": [
-      "vim"
+        "vim"
     ]
 }

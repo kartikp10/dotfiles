@@ -61,6 +61,7 @@ return packer.startup(function(use)
 
   -- Git integration
   use "lewis6991/gitsigns.nvim"
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 
   -- terraform lsp
@@ -72,14 +73,22 @@ return packer.startup(function(use)
 
 
   -- Debugger
-  use "puremourning/vimspector"
+  --use "puremourning/vimspector"
+    use "mfussenegger/nvim-dap"
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    -- language extensions
+    use 'mfussenegger/nvim-dap-python'
 
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
   use "sainnhe/everforest"
   use "sainnhe/gruvbox-material"
+  use "EdenEast/nightfox.nvim"
+  use 'folke/tokyonight.nvim'
+  use 'shaunsingh/nord.nvim'
+  use 'luisiacc/gruvbox-baby'
+  use 'projekt0n/github-nvim-theme'
+  use 'navarasu/onedark.nvim'
 
 
   -- cmp plugins

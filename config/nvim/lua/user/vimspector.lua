@@ -16,5 +16,14 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap <Leader>di <Plug>VimspectorBalloonEval
 nmap <LocalLeader><F11> <Plug>VimspectorUpFrame nmap <LocalLeader><F12> <Plug>VimspectorDownFrame
+
+nnoremenu WinBar.■\ Stop :call vimspector#Stop( { 'interactive': v:false } )<CR>
+nnoremenu WinBar.▶\ Cont :call vimspector#Continue()<CR>
+nnoremenu WinBar.▷\ Pause :call vimspector#Pause()<CR>
+nnoremenu WinBar.↷\ Next :call vimspector#StepOver()<CR>
+nnoremenu WinBar.→\ Step :call vimspector#StepInto()<CR>
+nnoremenu WinBar.←\ Out :call vimspector#StepOut()<CR>
+nnoremenu WinBar.⟲: :call vimspector#Restart()<CR>
+nnoremenu WinBar.✕ :call vimspector#Reset( { 'interactive': v:false } )<CR>
 ]]
 
