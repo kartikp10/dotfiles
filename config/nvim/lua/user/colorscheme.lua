@@ -1,5 +1,5 @@
 vim.g.gruvbox_material_foreground = "material"
-vim.g.gruvbox_material_background = "soft"
+vim.g.gruvbox_material_background = "hard"
 vim.cmd [[
 try
   colorscheme gruvbox-material

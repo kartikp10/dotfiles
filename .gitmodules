@@ -1,0 +1,6 @@
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "config/tmux/plugins/tmux-gruvbox"]
+	path = config/tmux/plugins/tmux-gruvbox
+	url = https://github.com/egel/tmux-gruvbox
