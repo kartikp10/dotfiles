@@ -46,8 +46,8 @@ return packer.startup(function(use)
 
   -- status line
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
 
 
@@ -61,7 +61,7 @@ return packer.startup(function(use)
 
   -- Git integration
   use "lewis6991/gitsigns.nvim"
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 
 
   -- terraform lsp
@@ -78,30 +78,52 @@ return packer.startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use "theHamsta/nvim-dap-virtual-text"
     -- language extensions
-    use 'mfussenegger/nvim-dap-python'
+    use "mfussenegger/nvim-dap-python"
 
 
   -- Colorschemes
-  use "sainnhe/everforest"
-  use "sainnhe/gruvbox-material"
-  use "EdenEast/nightfox.nvim"
-  use 'folke/tokyonight.nvim'
-  use 'shaunsingh/nord.nvim'
-  use 'luisiacc/gruvbox-baby'
-  use 'projekt0n/github-nvim-theme'
-  use 'navarasu/onedark.nvim'
+    use "sainnhe/everforest"
+    use "sainnhe/gruvbox-material"
+    use "EdenEast/nightfox.nvim"
+    use "folke/tokyonight.nvim"
+    use "shaunsingh/nord.nvim"
+    use "luisiacc/gruvbox-baby"
+    use "projekt0n/github-nvim-theme"
+    use "navarasu/onedark.nvim"
 
 
   -- cmp plugins
-  use {"neoclide/coc.nvim", branch = "release"}
+    --use {"neoclide/coc.nvim", branch = "release"}
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/nvim-cmp"
+    -- snippets
+    use "L3MON4D3/LuaSnip"
+    use "saadparwaiz1/cmp_luasnip"
+    use "rafamadriz/friendly-snippets"
 
+
+  -- LSP
+    use "neovim/nvim-lspconfig" -- enable LSP
+	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+  -- explorer
+    use {
+      "kyazdani42/nvim-tree.lua",
+      requires = {
+        "kyazdani42/nvim-web-devicons", -- optional, for file icons
+      }
+    }
 
   -- comments
   use "scrooloose/nerdcommenter"
 
 
   -- snippets
-  use "honza/vim-snippets"
+  -- use "honza/vim-snippets"
 
 
   -- Telescope
@@ -122,6 +144,7 @@ return packer.startup(function(use)
 
   -- Indent lines
   use "lukas-reineke/indent-blankline.nvim"
+
 
 
   -- Automatically set up your configuration after cloning packer.nvim
