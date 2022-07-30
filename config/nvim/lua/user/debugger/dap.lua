@@ -1,3 +1,6 @@
+require("dap")
+vim.fn.sign_define('DapBreakpoint', {text='', texthl='red', linehl='', numhl=''})
+
 vim.cmd[[
     nnoremap <silent> <Leader>dd <Cmd>lua require'dap.ext.vscode'.load_launchjs();require'dap'.continue()<CR>
     nnoremap <silent> <F8> <Cmd>lua require'dap'.step_over()<CR>
