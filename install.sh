@@ -16,4 +16,7 @@ function create_links() {
 }
 
 brew upgrade && brew install alacritty neovim tmux
+brew tap homebrew/cask-fonts
+brew install --cask  font-meslo-lg-nerd-font
+
 create_links
