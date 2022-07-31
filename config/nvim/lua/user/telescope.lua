@@ -9,8 +9,8 @@ local builtin = require "telescope.builtin"
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = " ",
+    selection_caret = " ",
     path_display = { "smart" },
 
     mappings = {
@@ -100,6 +100,6 @@ vim.cmd [[
 " telescope configuration 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fb <cmd>Telescope current_buffer_fuzzy_find<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 ]]

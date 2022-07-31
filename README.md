@@ -1,13 +1,12 @@
-# dotfiles
+# dotfiles 🏗
+
 dotfiles on macos
 
-# todo
-
+## todo
 
 Neovim
 
-- [ ] Fix format command
-- [ ] Diagnostic vuirtual text is not working 
+- [x] Fix format command
+- [x] Fix diagnostic info
 - [ ] Add auto pair match completion
-- [ ] Cleanup plugins.lua 
-
+- [ ] Cleanup plugins.lua

@@ -26,4 +26,3 @@ nnoremenu WinBar.←\ Out :call vimspector#StepOut()<CR>
 nnoremenu WinBar.⟲: :call vimspector#Restart()<CR>
 nnoremenu WinBar.✕ :call vimspector#Reset( { 'interactive': v:false } )<CR>
 ]]
-
