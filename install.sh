@@ -57,11 +57,11 @@ if [[ -z "$1" ]]; then
     dev_tools
     create_links
     install_apps    
-elif [[ "$1" == "dev_tools"]]; then
+elif [[ "$1" == "dev_tools" ]]; then
     dev_tools
-elif [[ "$1" == "create_links"]]; then
+elif [[ "$1" == "create_links" ]]; then
     create_links
-elif [[ "$1" == "install_apps"]]; then
+elif [[ "$1" == "install_apps" ]]; then
     install_apps    
 else
     echo "Unrecognized command. Available commands are: "
