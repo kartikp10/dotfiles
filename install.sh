@@ -5,6 +5,7 @@ function create_links() {
     echo "------------ Creating symlinks to config files -------------------"
     local username
     username="$(whoami)"
+    mkdir -p /Users/"$username"/.config
     rm -rf /Users/"$username"/.config/tmux
     rm -rf /Users/"$username"/.config/nvim
     rm -rf /Users/"$username"/.config/alacritty
@@ -12,6 +13,7 @@ function create_links() {
     ln -s /Users/"$username"/dev/dotfiles/config/tmux /Users/"$username"/.config/tmux
     ln -s /Users/"$username"/dev/dotfiles/config/nvim /Users/"$username"/.config/nvim
     ln -s /Users/"$username"/dev/dotfiles/config/alacritty /Users/"$username"/.config/alacritty
+    echo "Done creting symlinks"
     echo ""
 }
 
@@ -26,9 +28,12 @@ function install_apps() {
     brew install --cask postman
     brew install --cask whatsapp
     brew install docker
+    echo "Done installing apps"
+    echo ""
 
     echo "------------------------ Install manually ------------------------"
     echo "Logi Options: https://www.logitech.com/en-us/software/options.html"
+    echo ""
 }
 
 function dev_tools() {
@@ -49,6 +54,8 @@ function dev_tools() {
     brew install awscli
     echo ""
     echo "Run p10k configure"
+    echo "Done installing dev tools"
+    echo ""
 }
 
 if [[ -z "$1" ]]; then
