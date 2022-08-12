@@ -38,6 +38,7 @@ function dev_tools() {
     brew install --cask  font-meslo-lg-nerd-font
     brew install romkatv/powerlevel10k/powerlevel10k
     echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc
+    brew install gh
     brew install pyenv
     brew install pipenv
     brew install nvm
