@@ -63,30 +63,30 @@ function dev_tools() {
 
 function echo_user_conf() {
     echo 'export EDITOR="/usr/local/bin/nvim"
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
-    eval "$(pyenv init -)"
-    source /usr/local/opt/nvm/nvm.sh
+eval "$(pyenv init -)"
+source /usr/local/opt/nvm/nvm.sh
 
-    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-    ZRC=~/.zshrc
+ZRC=~/.zshrc
 
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-    export GOPATH=$HOME/go
-    export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
-    if [[ $PATH != *$GOPATH* ]]; then
-        export PATH="${GOPATH}/bin:${PATH}"
-    fi
+if [[ $PATH != *$GOPATH* ]]; then
+    export PATH="${GOPATH}/bin:${PATH}"
+fi
 
-    if [[ $PATH != *$GOROOT* ]]; then
-        export PATH="${GOROOT}/bin:${PATH}"
-    fi
+if [[ $PATH != *$GOROOT* ]]; then
+    export PATH="${GOROOT}/bin:${PATH}"
+fi
     '
 }
 
