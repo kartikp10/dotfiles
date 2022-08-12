@@ -39,8 +39,10 @@ function install_apps() {
 function dev_tools() {
     brew upgrade 
     brew install alacritty neovim tmux
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
     brew tap homebrew/cask-fonts
     brew install --cask  font-meslo-lg-nerd-font
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     brew install romkatv/powerlevel10k/powerlevel10k
     echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc
     brew install gh
@@ -52,10 +54,40 @@ function dev_tools() {
     brew install ripgrep
     brew install tldr
     brew install awscli
+    brew install wget
     echo ""
     echo "Run p10k configure"
     echo "Done installing dev tools"
     echo ""
+}
+
+function echo_user_conf() {
+    echo 'export EDITOR="/usr/local/bin/nvim"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+
+    eval "$(pyenv init -)"
+    source /usr/local/opt/nvm/nvm.sh
+
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+    ZRC=~/.zshrc
+
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOPATH/bin
+
+    if [[ $PATH != *$GOPATH* ]]; then
+        export PATH="${GOPATH}/bin:${PATH}"
+    fi
+
+    if [[ $PATH != *$GOROOT* ]]; then
+        export PATH="${GOROOT}/bin:${PATH}"
+    fi
+    '
 }
 
 if [[ -z "$1" ]]; then
@@ -64,15 +96,22 @@ if [[ -z "$1" ]]; then
     dev_tools
     create_links
     install_apps    
+    echo ""
+    echo "Add the following to your .zshrc file:"
+    echo ""
+    echo_user_conf
 elif [[ "$1" == "dev_tools" ]]; then
     dev_tools
 elif [[ "$1" == "create_links" ]]; then
     create_links
 elif [[ "$1" == "install_apps" ]]; then
     install_apps    
+elif [[ "$1" == "echo_user_conf" ]]; then
+    echo_user_conf
 else
     echo "Unrecognized command. Available commands are: "
     echo "dev_tools"
     echo "create_links"
     echo "install_apps"
+    echo "echo_user_conf"
 fi

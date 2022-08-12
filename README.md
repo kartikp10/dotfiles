@@ -22,6 +22,9 @@ To selectively install use the following commands:
 
 # Install applications: rectangle, obsidian, vscode, spotify, postman, docker, alfred and others
 ./install.sh install_apps
+
+# Echo user config for zsh
+./install.sh echo_user_conf
 ```
 
 ## Todo
