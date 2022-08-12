@@ -25,7 +25,7 @@ M.setup = function()
 		severity_sort = true,
 		float = {
 			focusable = false,
-			style = "minimal",
+			--style = "minimal",
 			border = "rounded",
 			source = "always",
 			header = "",
@@ -37,12 +37,12 @@ M.setup = function()
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "rounded",
-		width = 60,
+		width = 70,
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
-		width = 60,
+		width = 70,
 	})
 end
 
