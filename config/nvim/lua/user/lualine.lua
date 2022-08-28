@@ -9,7 +9,7 @@ end
 
 local diagnostics = {
 	"diagnostics",
-	sources = { "nvim_diagnostic", "coc" },
+	sources = { "nvim_diagnostic", "coc", "nvim_lsp" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
 	colored = false,

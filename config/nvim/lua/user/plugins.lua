@@ -81,6 +81,7 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use "theHamsta/nvim-dap-virtual-text"
+    use "nvim-telescope/telescope-dap.nvim"
     -- language extensions
     use "mfussenegger/nvim-dap-python"
     use "leoluz/nvim-dap-go"
@@ -95,6 +96,7 @@ return packer.startup(function(use)
     use "luisiacc/gruvbox-baby"
     use "projekt0n/github-nvim-theme"
     use "navarasu/onedark.nvim"
+    use 'sainnhe/sonokai'
 
 
     -- cmp plugins
@@ -115,6 +117,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+
     -- explorer
     use {
         "kyazdani42/nvim-tree.lua",
@@ -122,6 +125,7 @@ return packer.startup(function(use)
             "kyazdani42/nvim-web-devicons", -- optional, for file icons
         }
     }
+
 
     -- comments
     use "scrooloose/nerdcommenter"
@@ -134,6 +138,13 @@ return packer.startup(function(use)
     -- Telescope
     use "nvim-telescope/telescope.nvim"
     use "nvim-lua/plenary.nvim"
+    use "nvim-telescope/telescope-ui-select.nvim"
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'stevearc/dressing.nvim' }
+    use {
+        'kosayoda/nvim-lightbulb',
+        requires = 'antoinemadec/FixCursorHold.nvim',
+    }
 
 
     -- Treesitter

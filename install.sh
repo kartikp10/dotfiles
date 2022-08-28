@@ -50,12 +50,15 @@ function dev_tools() {
     brew install pipenv
     brew install nvm
     brew install go
+    brew install rust
+    brew install terraform
     brew install fzf
     /opt/homebrew/opt/fzf/install
     brew install ripgrep
     brew install tldr
     brew install awscli
     brew install wget
+    brew install tree
     echo ""
     echo "Run p10k configure"
     echo "Done installing dev tools"
