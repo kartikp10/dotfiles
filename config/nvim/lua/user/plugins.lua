@@ -64,10 +64,6 @@ return packer.startup(function(use)
     use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
 
 
-    -- terraform lsp
-    use "hashivim/vim-terraform"
-
-
     -- Add surrounding text in pairs
     use "tpope/vim-surround"
 
