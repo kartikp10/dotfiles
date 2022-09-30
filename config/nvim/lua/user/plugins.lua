@@ -43,11 +43,12 @@ return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
 
+    use "kyazdani42/nvim-web-devicons"
 
     -- status line
     use {
         "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+        requires = { "kyazdani42/nvim-web-devicons" }
     }
 
 
@@ -93,6 +94,14 @@ return packer.startup(function(use)
     use "projekt0n/github-nvim-theme"
     use "navarasu/onedark.nvim"
     use 'sainnhe/sonokai'
+    use "bluz71/vim-moonfly-colors"
+    use { 'srcery-colors/srcery-vim', as = 'srcery' }
+    use "NLKNguyen/papercolor-theme"
+    use "tomasr/molokai"
+    use "lifepillar/vim-solarized8"
+    use "ayu-theme/ayu-vim"
+    use "rktjmp/lush.nvim"
+    use "~/dev/noctis.nvim"
 
 
     -- cmp plugins
@@ -148,6 +157,10 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
+
+
+    -- Code folding
+    use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
 
 
     -- Better terminal integration

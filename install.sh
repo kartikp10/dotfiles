@@ -27,7 +27,7 @@ function install_apps() {
     brew install --cask alfred
     brew install --cask postman
     brew install --cask whatsapp
-    brew install docker
+    brew install --cask docker
     echo "Done installing apps"
     echo ""
 

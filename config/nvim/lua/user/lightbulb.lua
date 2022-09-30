@@ -2,7 +2,7 @@
 require('nvim-lightbulb').setup({
     -- LSP client names to ignore
     -- Example: {"sumneko_lua", "null-ls"}
-    ignore = {},
+    ignore = { "null-ls", "gitsigns" },
     sign = {
         enabled = true,
         -- Priority of the gutter sign
@@ -29,7 +29,7 @@ require('nvim-lightbulb').setup({
         win_opts = {},
     },
     virtual_text = {
-        enabled = false,
+        enabled = true,
         -- Text to show at virtual text
         text = "",
         -- highlight mode to use for virtual text (replace, combine, blend), see :help nvim_buf_set_extmark() for reference
@@ -45,8 +45,8 @@ require('nvim-lightbulb').setup({
     autocmd = {
         enabled = true,
         -- see :help autocmd-pattern
-        pattern = {"*"},
+        pattern = { "*" },
         -- see :help autocmd-events
-        events = {"CursorHold", "CursorHoldI"}
+        events = { "CursorHold", "CursorHoldI" }
     }
 })
