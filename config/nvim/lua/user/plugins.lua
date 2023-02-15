@@ -75,7 +75,7 @@ return packer.startup(function(use)
 
     -- Debugger
     --use "puremourning/vimspector"
-    use "mfussenegger/nvim-dap"
+     use "mfussenegger/nvim-dap"
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use "theHamsta/nvim-dap-virtual-text"
     use "nvim-telescope/telescope-dap.nvim"
@@ -101,7 +101,10 @@ return packer.startup(function(use)
     use "lifepillar/vim-solarized8"
     use "ayu-theme/ayu-vim"
     use "rktjmp/lush.nvim"
-    use "~/dev/noctis.nvim"
+    -- use "~/dev/noctis.nvim"
+    use "kartikp10/noctis.nvim"
+    use "rktjmp/shipwright.nvim"
+    use 'Yazeed1s/oh-lucy.nvim'
 
 
     -- cmp plugins
@@ -121,6 +124,18 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+
+    -- Test
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim"
+        }
+    }
+    use "nvim-neotest/neotest-python"
 
 
     -- explorer

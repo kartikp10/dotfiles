@@ -13,6 +13,7 @@ function create_links() {
     ln -s /Users/"$username"/dev/dotfiles/config/tmux /Users/"$username"/.config/tmux
     ln -s /Users/"$username"/dev/dotfiles/config/nvim /Users/"$username"/.config/nvim
     ln -s /Users/"$username"/dev/dotfiles/config/alacritty /Users/"$username"/.config/alacritty
+    ln -s /Users/"$username"/dev/dotfiles/config/vscode_vim/vimrc /Users/"$username"/.config/vscode_vim/vimrc
     echo "Done creting symlinks"
     echo ""
 }
@@ -59,6 +60,7 @@ function dev_tools() {
     brew install awscli
     brew install wget
     brew install tree
+    brew install todo-txt
     echo ""
     echo "Run p10k configure"
     echo "Done installing dev tools"

@@ -1,5 +1,5 @@
 vim.g.gruvbox_material_foreground = "material"
-vim.g.gruvbox_material_background = "soft"
+vim.g.gruvbox_material_background = "medium"
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
@@ -52,7 +52,7 @@ require('onedark').setup  {
 
 vim.cmd [[
 try
-    colorscheme noctis
+    colorscheme everforest
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark

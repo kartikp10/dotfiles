@@ -1,0 +1,4 @@
+set syntax
+set number relativenumber
+set ttyfast
+set scrolloff=8
