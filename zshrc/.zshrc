@@ -15,4 +15,5 @@ alias gco="git checkout"
 alias gcmsg="git commit -m"
 alias grs="git restore"
 alias gl="git pull"
+alias gp="git push"
 
